@@ -229,6 +229,7 @@
         border: 1px solid var(--clr-rose-400);
         font-weight: var(--fw-semibold);
         background-color: var(--clr-white);
+        color: var(--clr-rose-900);
     }
 
     .add-to-cart img,
