@@ -1,4 +1,5 @@
-const URL = "../data.json";
+const URL =
+    "https://raphico.github.io/product-list-with-cart.github.io/data.json";
 
 export async function fetchDesserts() {
     try {
