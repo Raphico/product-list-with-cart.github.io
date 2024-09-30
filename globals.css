@@ -1,0 +1,390 @@
+@layer base {
+    :root {
+        --clr-red: hsl(14, 86%, 42%);
+        --clr-green: hsl(159, 69%, 38%);
+        --clr-white: hsl(0, 0%, 100%);
+        --clr-rose-50: hsl(20, 50%, 98%);
+        --clr-rose-100: hsl(13, 31%, 94%);
+        --clr-rose-300: hsl(14, 25%, 72%);
+        --clr-rose-400: hsl(7, 20%, 60%);
+        --clr-rose-500: hsl(12, 20%, 44%);
+        --clr-rose-900: hsl(14, 65%, 9%);
+        --clr-black-50: hsl(0, 0%, 0%, 0.5);
+
+        --ff: "Red Hat Text", sans-serif;
+
+        --fs-base: 1rem;
+        --fs-scale: 1.14;
+        --fs-h1: calc(var(--fs-h2) * var(--fs-scale));
+        --fs-h2: calc(var(--fs-h3) * var(--fs-scale));
+        --fs-h3: calc(var(--fs-h4) * var(--fs-scale));
+        --fs-h4: calc(var(--fs-h5) * var(--fs-scale));
+        --fs-h5: calc(var(--fs-h6) * var(--fs-scale));
+        --fs-h6: calc(var(--fs-base) * var(--fs-scale));
+        --fs-small: calc(var(--fs-base) / var(--fs-scale));
+
+        --fw-regular: 400;
+        --fw-bold: 700;
+        --fw-semibold: 600;
+
+        --radius: 8px;
+    }
+
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: var(--ff);
+        background-color: var(--clr-rose-50);
+        color: var(--clr-rose-900);
+        line-height: 1.5;
+        font-size: var(--fs-base);
+        font-weight: var(--fw-regular);
+    }
+
+    img,
+    picture {
+        display: block;
+        max-width: 100%;
+    }
+
+    button {
+        cursor: pointer;
+        font: inherit;
+    }
+
+    h1,
+    .h1 {
+        font-size: var(--fs-h1);
+        margin-bottom: var(--fs-h2);
+        line-height: 1;
+    }
+
+    h2,
+    .h2 {
+        font-size: var(--fs-h2);
+        margin-bottom: var(--fs-h3);
+        line-height: 1.1;
+    }
+
+    h3,
+    .h3 {
+        font-size: var(--fs-h3);
+        margin-bottom: var(--fs-h4);
+        line-height: 1.2;
+    }
+
+    h4,
+    .h4 {
+        font-size: var(--fs-h4);
+        margin-bottom: var(--fs-h4);
+        line-height: 1.3;
+    }
+
+    h5,
+    .h5 {
+        font-size: var(--fs-h5);
+        margin-bottom: var(--fs-h6);
+        line-height: 1.4;
+    }
+
+    h6,
+    .h6 {
+        font-size: var(--fs-h6);
+        margin-bottom: var(--fs-base);
+    }
+
+    small,
+    .small {
+        font-size: var(--fs-small);
+    }
+
+    p,
+    .p {
+        font-size: var(--fs-base);
+    }
+}
+
+@layer utilities {
+    .container {
+        width: 85%;
+        max-width: 1300px;
+        margin: 0 auto;
+        padding-top: 1em;
+    }
+
+    .red-text {
+        color: var(--clr-red);
+    }
+
+    .rose-500-text {
+        color: var(--clr-rose-500);
+    }
+
+    .card {
+        border-radius: var(--radius);
+        background-color: var(--clr-white);
+        padding: 1.5em;
+    }
+
+    .fw-semibold {
+        font-weight: var(--fw-semibold);
+    }
+
+    .fw-bold {
+        font-weight: var(--fw-bold);
+    }
+
+    .order-btn {
+        background-color: var(--clr-red);
+        color: var(--clr-white);
+        border-radius: 50px;
+        padding: 0.75em 1.5em;
+        border: none;
+        font-weight: var(--fw-semibold);
+    }
+}
+
+@layer components {
+    /* DESSERTS */
+    .desserts {
+        display: grid;
+        gap: 2rem;
+        margin-bottom: 2.5em;
+    }
+
+    .dessert {
+        position: relative;
+    }
+
+    .dessert-img img {
+        border-radius: var(--radius);
+    }
+
+    .dessert h2 {
+        margin-bottom: 0;
+    }
+
+    .dessert-type {
+        display: inline-block;
+        margin-top: 5em;
+        text-transform: capitalize;
+    }
+
+    .dessert-title {
+        margin: 0.35em 0;
+        display: block;
+    }
+
+    .dessert.ordered .dessert-img img {
+        border: 2px solid var(--clr-red);
+        border-radius: var(--radius);
+    }
+
+    .quantity-control,
+    .add-to-cart {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.75em 1.5em;
+        border-radius: var(--radius);
+        border-radius: 50px;
+        width: 170px;
+    }
+
+    .product-btn-container {
+        position: relative;
+        margin-top: -1.8rem;
+    }
+
+    .quantity-control {
+        background-color: var(--clr-red);
+        color: var(--clr-white);
+        justify-content: space-between;
+    }
+
+    .quantity-control button,
+    .remove-item {
+        display: grid;
+        place-content: center;
+        background-color: transparent;
+        border: 2px solid var(--clr-white);
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+    }
+
+    .add-to-cart {
+        border: 1px solid var(--clr-rose-400);
+        font-weight: var(--fw-semibold);
+        background-color: var(--clr-white);
+    }
+
+    .add-to-cart img,
+    .quantity-control img {
+        pointer-events: none;
+    }
+
+    /* CART */
+    .cart {
+        display: grid;
+        gap: 0.5rem;
+    }
+
+    .empty-cart {
+        text-align: center;
+        color: var(--clr-rose-500);
+        padding-bottom: 0.5em;
+    }
+
+    .empty-cart img {
+        margin: 0 auto;
+    }
+
+    .info {
+        text-align: center;
+        border-radius: var(--radius);
+        background-color: var(--clr-rose-50);
+        padding: 1em;
+        margin-bottom: 0.5em;
+    }
+
+    .remove-item {
+        border-color: var(--clr-rose-400);
+    }
+
+    .remove-item img {
+        pointer-events: none;
+    }
+
+    /* CHECKOUT */
+    .modal {
+        display: none;
+        position: fixed;
+        inset: 0;
+        margin: auto;
+        background-color: var(--clr-black-50);
+    }
+    .modal[data-visible="true"] {
+        display: grid;
+    }
+
+    .checkout {
+        display: grid;
+        gap: 1.5rem;
+        margin-top: auto;
+        padding-inline: 1.5em;
+    }
+
+    .checkout header h2 {
+        margin-bottom: 0.25em;
+    }
+
+    .thumbnail-container img {
+        width: 100%;
+        height: 100%;
+        border-radius: var(--radius);
+        object-fit: cover;
+    }
+
+    .thumbnail-container {
+        width: 50px;
+    }
+
+    /* TABLE */
+    .checkout-table {
+        background-color: var(--clr-rose-50);
+        padding: 1em;
+        padding-bottom: 0;
+        border-radius: var(--radius);
+    }
+    tr {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid var(--clr-rose-100);
+    }
+    tfoot tr {
+        border: 0;
+    }
+    td {
+        padding: 1em 0;
+        display: flex;
+        gap: 1rem;
+    }
+    td span {
+        margin-right: 1em;
+    }
+    td p {
+        margin-bottom: 0.3em;
+    }
+    .order-total {
+        margin-bottom: 0;
+    }
+
+    /* FOOTER */
+    footer {
+        text-align: center;
+        font-size: var(--fs-small);
+        color: var(--clr-rose-500);
+        padding: 2em 0;
+    }
+
+    footer a {
+        text-decoration: none;
+        color: var(--clr-rose-500);
+    }
+
+    /* Media queries */
+    @media (min-width: 768px) {
+        .container {
+            padding-top: 2em;
+        }
+        .desserts {
+            grid-template-columns: repeat(3, 1fr);
+        }
+        .checkout {
+            margin: auto;
+            width: 500px;
+        }
+    }
+    @media (min-width: 1024px) {
+        .container {
+            display: grid;
+            align-items: start;
+            grid-template-columns: repeat(3, 1fr) 1.5fr;
+            grid-template-rows: repeat(3, auto);
+            gap: 1.5rem;
+        }
+        .desserts {
+            gap: 1.5rem;
+        }
+        .container > header {
+            grid-row: 1 / 2;
+            grid-column: 1 / 4;
+        }
+        main {
+            grid-row: 2 / 3;
+            grid-column: 1 / 4;
+        }
+        footer {
+            grid-row-start: 3 / 4;
+            grid-column: 1 / 4;
+        }
+        .cart {
+            grid-row: 1 / -1;
+            grid-column: 4 /-1;
+        }
+    }
+}

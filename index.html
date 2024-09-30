@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="./globals.css" />
+        <link rel="icon" href="./assets/images/favicon-32x32.png" />
+        <script defer type="module" src="./src/app.js"></script>
+        <title>Dessert</title>
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <h1>Desserts</h1>
+            </header>
+            <main>
+                <section id="desserts" class="desserts"></section>
+            </main>
+            <aside id="cart" class="cart card" aria-live="polite">
+                <h2 class="h4 red-text">Your cart (0)</h2>
+                <div class="empty-cart">
+                    <img
+                        src="./assets/images/illustration-empty-cart.svg"
+                        alt="Illustration of an empty shopping cart"
+                    />
+                    <p class="fw-semibold small">
+                        Your added items will appear here
+                    </p>
+                </div>
+            </aside>
+            <footer>
+                <small>
+                    Challenge by
+                    <cite
+                        ><a href="https://www.frontendmentor.io?ref=challenge"
+                            >Frontend Mentor.</a
+                        ></cite
+                    >
+                </small>
+            </footer>
+        </div>
+        <div id="dialog" class="modal" role="dialog" data-visible="false">
+            <div id="checkout" class="checkout card"></div>
+        </div>
+    </body>
+</html>
